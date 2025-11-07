@@ -1,0 +1,11 @@
+/.coverage
+/html/
+/htmlcov/
+/.idea
+/.mypy_cache
+*.pyc
+__pycache__
+/.pytest_cache
+Thumbs.db
+/.venv
+/.vscode
