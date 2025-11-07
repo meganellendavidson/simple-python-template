@@ -524,14 +524,14 @@ colors = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "language-formatters-pre-commit-hooks"
-version = "2.14.0"
+version = "2.15.0"
 description = "List of pre-commit hooks meant to format your source code."
 optional = false
 python-versions = "*"
 groups = ["dev"]
 files = [
-    {file = "language_formatters_pre_commit_hooks-2.14.0-py2.py3-none-any.whl", hash = "sha256:38fc4551116094a73af306fc70fea7febb1eb236335469c824666f9425434117"},
-    {file = "language_formatters_pre_commit_hooks-2.14.0.tar.gz", hash = "sha256:f91dc33a6abc957f6ed222b29a8e468444992ae4629a220611521d7c23103a59"},
+    {file = "language_formatters_pre_commit_hooks-2.15.0-py2.py3-none-any.whl", hash = "sha256:7cce28ae8e048c2b8b22c5ad48f368c7993486e9d91788cf7216621658ebb187"},
+    {file = "language_formatters_pre_commit_hooks-2.15.0.tar.gz", hash = "sha256:fc724bf8a643c1abefd81f3f3fe0a71489eedcfe3aaae28114f36bbb03a80b7c"},
 ]
 
 [package.dependencies]
