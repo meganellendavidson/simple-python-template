@@ -12,7 +12,6 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-20.04
           - ubuntu-latest # Don't use this in production!
         python:
           - "3.8"
@@ -47,3 +46,25 @@ jobs:
         run: poetry run coverage run --module pytest
       - name: Verify test coverage
         run: poetry run coverage html
+      - name: Archive code coverage report
+        uses: actions/upload-artifact@604373da6381bf24206979c74d06a550515601b9 # v4.4.1
+        with:
+          name: code-coverage-report
+          path: htmlcov
+        if: ${{ failure() }}
+
+  finalise:
+    if: always()
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check build job result
+        run: |
+          echo "Build job result: ${{ needs.build.result }}"
+          if [[ "${{ needs.build.result }}" == "success" ]]; then
+            echo ":white_check_mark: All required jobs succeeded."
+          else
+            echo ":x: One or more jobs failed."
+            exit 1
+          fi
