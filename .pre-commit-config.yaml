@@ -1,0 +1,54 @@
+# Configuration file for pre-commit (https://pre-commit.com/)
+# Please run `pre-commit run --all-files` when adding or changing entries.
+
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        entry: black
+        language: system
+        stages: [commit]
+        types: [python]
+
+      - id: gitlint
+        name: gitlint
+        entry: gitlint
+        args: [--msg-filename]
+        language: system
+        stages: [commit-msg]
+
+      - id: isort
+        name: isort
+        entry: isort
+        language: system
+        stages: [commit]
+        types: [python]
+
+      - id: mypy
+        name: mypy
+        entry: mypy
+        args: [--no-incremental]
+        language: system
+        stages: [commit]
+        types: [python]
+        require_serial: true
+
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        stages: [commit]
+        types: [python]
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: fc260393cc4ec09f8fc0a5ba4437f481c8b55dc1 # frozen: v3.0.3
+    hooks:
+      - id: prettier
+        stages: [commit]
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: ea8102762106cdca9c88829f1295b39a544706f3 # frozen: v1.6.26
+    hooks:
+      - id: actionlint
+        stages: [commit]
